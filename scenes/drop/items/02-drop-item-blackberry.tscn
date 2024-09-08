@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dfyn2wrl0n41p"]
+
+[ext_resource type="Script" path="res://scenes/drop/drop_item.gd" id="1_fj5dr"]
+[ext_resource type="PhysicsMaterial" uid="uid://dck5o0rbwcddu" path="res://scenes/drop/items/drop-items-physics-mat.tres" id="1_sguf0"]
+[ext_resource type="Texture2D" uid="uid://cyygrp7sbrsts" path="res://assets/sprites/drop/itch/pngs/black-berry-dark.png" id="2_mdv6v"]
+
+[node name="drop-item-blackberry" type="RigidBody2D" groups=["dropitem"]]
+mass = 0.02
+physics_material_override = ExtResource("1_sguf0")
+script = ExtResource("1_fj5dr")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(0, 1)
+scale = Vector2(0.069, 0.069)
+polygon = PackedVector2Array(-64, -138, -107, -138, -191, -124, -233, -96, -238, -33, -242, 26, -204, 107, -165, 192, -83, 245, -4, 290, 92, 250, 154, 182, 188, 107, 228, 36, 244, -72, 220, -114, 170, -120, 131, -137, 84, -130, 25, -151)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.069, 0.069)
+texture = ExtResource("2_mdv6v")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

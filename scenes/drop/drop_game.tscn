@@ -1,0 +1,204 @@
+[gd_scene load_steps=35 format=3 uid="uid://c7k5cgewcagyq"]
+
+[ext_resource type="Script" path="res://scenes/drop/drop_game.gd" id="1_mv680"]
+[ext_resource type="PackedScene" uid="uid://codferebqxbgi" path="res://gui/drop_hud.tscn" id="2_c2rwi"]
+[ext_resource type="PackedScene" uid="uid://c1lrcqch251yx" path="res://scenes/parallax.tscn" id="3_ths7d"]
+[ext_resource type="PackedScene" uid="uid://n3r8gdl5wm2f" path="res://scenes/drop/dropper.tscn" id="4_lhlmd"]
+[ext_resource type="PackedScene" uid="uid://cjletxsgmap21" path="res://scenes/drop/items/01-drop-item-cherry.tscn" id="5_6qx1k"]
+[ext_resource type="PackedScene" uid="uid://dfyn2wrl0n41p" path="res://scenes/drop/items/02-drop-item-blackberry.tscn" id="6_82v7v"]
+[ext_resource type="PackedScene" uid="uid://baglg2ek87uw8" path="res://scenes/drop/items/05-drop-item-plum.tscn" id="6_aadf8"]
+[ext_resource type="Texture2D" uid="uid://cdysc5lyaph45" path="res://assets/sprites/wood_wall.svg" id="6_oshiy"]
+[ext_resource type="PackedScene" uid="uid://l38vb3oa275c" path="res://scenes/drop/items/03-drop-item-lime.tscn" id="7_5ahai"]
+[ext_resource type="Texture2D" uid="uid://05dwnstp85rj" path="res://assets/sprites/terrain.png" id="7_c0fp3"]
+[ext_resource type="PackedScene" uid="uid://bgrb6vq68rn7r" path="res://scenes/drop/items/06-drop-item-peach.tscn" id="7_iam4g"]
+[ext_resource type="PackedScene" uid="uid://dl2v0qq3ipwrv" path="res://scenes/drop/items/04-drop-item-lemon.tscn" id="8_mdn5y"]
+[ext_resource type="PackedScene" uid="uid://b44cauumvn4m8" path="res://scenes/drop/items/07-drop-item-pear.tscn" id="8_uj3m1"]
+[ext_resource type="PackedScene" uid="uid://b0lxrw00lvam" path="res://scenes/drop/items/08-drop-item-apple.tscn" id="9_0g3sv"]
+[ext_resource type="PackedScene" uid="uid://c3dn5wnd00xpc" path="res://scenes/drop/items/09-drop-item-orange.tscn" id="10_8f686"]
+[ext_resource type="PackedScene" uid="uid://bvb1eva5itspp" path="res://scenes/drop/items/10-drop-item-star.tscn" id="11_0bt01"]
+[ext_resource type="PackedScene" uid="uid://csmghgrhee8x0" path="res://scenes/drop/items/11-drop-item-watermelon.tscn" id="12_vr34a"]
+[ext_resource type="Script" path="res://drop_item_data.gd" id="13_axqj2"]
+
+[sub_resource type="Resource" id="Resource_0cgi3"]
+script = ExtResource("13_axqj2")
+score = 1
+mass = 0.01
+scene = ExtResource("5_6qx1k")
+spawn_weight = 0.0
+
+[sub_resource type="Resource" id="Resource_hoagd"]
+script = ExtResource("13_axqj2")
+score = 2
+mass = 0.02
+scene = ExtResource("6_82v7v")
+spawn_weight = 0.0
+
+[sub_resource type="Resource" id="Resource_gnlq6"]
+script = ExtResource("13_axqj2")
+score = 3
+mass = 0.03
+scene = ExtResource("7_5ahai")
+spawn_weight = 0.0
+
+[sub_resource type="Resource" id="Resource_qorj2"]
+script = ExtResource("13_axqj2")
+score = 4
+mass = 0.06
+scene = ExtResource("8_mdn5y")
+spawn_weight = 0.0
+
+[sub_resource type="Resource" id="Resource_au86w"]
+script = ExtResource("13_axqj2")
+score = 5
+mass = 0.08
+scene = ExtResource("6_aadf8")
+spawn_weight = 0.0
+
+[sub_resource type="Resource" id="Resource_yx3q8"]
+script = ExtResource("13_axqj2")
+score = 6
+mass = 0.1
+scene = ExtResource("7_iam4g")
+spawn_weight = 0.0
+
+[sub_resource type="Resource" id="Resource_gbvi3"]
+script = ExtResource("13_axqj2")
+score = 7
+mass = 0.15
+scene = ExtResource("8_uj3m1")
+spawn_weight = 0.0
+
+[sub_resource type="Resource" id="Resource_b2qe8"]
+script = ExtResource("13_axqj2")
+score = 8
+mass = 0.2
+scene = ExtResource("9_0g3sv")
+spawn_weight = 0.0
+
+[sub_resource type="Resource" id="Resource_2662k"]
+script = ExtResource("13_axqj2")
+score = 9
+mass = 0.3
+scene = ExtResource("10_8f686")
+spawn_weight = 0.0
+
+[sub_resource type="Resource" id="Resource_r6nmy"]
+script = ExtResource("13_axqj2")
+score = 10
+mass = 0.5
+scene = ExtResource("11_0bt01")
+spawn_weight = 0.0
+
+[sub_resource type="Resource" id="Resource_ebeex"]
+script = ExtResource("13_axqj2")
+score = 11
+mass = 1.0
+scene = ExtResource("12_vr34a")
+spawn_weight = 0.0
+
+[sub_resource type="Environment" id="Environment_mmdvp"]
+background_mode = 3
+glow_intensity = 0.85
+glow_strength = 0.69
+glow_bloom = 0.09
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_asfy8"]
+auto_exposure_enabled = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o63i2"]
+size = Vector2(653, 199)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0d7cy"]
+size = Vector2(509, 717.5)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_y38si"]
+normal = Vector2(0, 1)
+
+[node name="Game" type="Node2D" node_paths=PackedStringArray("items_root")]
+position = Vector2(1, 0)
+script = ExtResource("1_mv680")
+all_drop_items = Array[ExtResource("13_axqj2")]([SubResource("Resource_0cgi3"), SubResource("Resource_hoagd"), SubResource("Resource_gnlq6"), SubResource("Resource_qorj2"), SubResource("Resource_au86w"), SubResource("Resource_yx3q8"), SubResource("Resource_gbvi3"), SubResource("Resource_b2qe8"), SubResource("Resource_2662k"), SubResource("Resource_r6nmy"), SubResource("Resource_ebeex")])
+items_root = NodePath("DropBox/items")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_mmdvp")
+camera_attributes = SubResource("CameraAttributesPractical_asfy8")
+
+[node name="HUD" parent="." instance=ExtResource("2_c2rwi")]
+
+[node name="Parallax" parent="." instance=ExtResource("3_ths7d")]
+modulate = Color(0.735797, 0.735797, 0.735797, 1)
+position = Vector2(9, 12)
+
+[node name="DropBox" type="StaticBody2D" parent="."]
+position = Vector2(331, 507)
+collision_layer = 0
+collision_mask = 0
+
+[node name="Node2D" type="Node2D" parent="DropBox"]
+position = Vector2(0, -108)
+
+[node name="item-dropper" parent="DropBox/Node2D" node_paths=PackedStringArray("items_root") instance=ExtResource("4_lhlmd")]
+position = Vector2(-4, -260)
+look_sensitivity = 10.0
+items_root = NodePath("../../items")
+
+[node name="walls" type="StaticBody2D" parent="DropBox"]
+collision_layer = 3
+
+[node name="bottom" type="CollisionShape2D" parent="DropBox/walls"]
+position = Vector2(-8, 585)
+shape = SubResource("RectangleShape2D_o63i2")
+
+[node name="Sprite2D2" type="Sprite2D" parent="DropBox/walls/bottom"]
+position = Vector2(7, -10)
+scale = Vector2(1.27539, 0.390625)
+texture = ExtResource("7_c0fp3")
+
+[node name="left" type="CollisionShape2D" parent="DropBox/walls"]
+position = Vector2(-331, 126.25)
+scale = Vector2(0.04, 1)
+shape = SubResource("RectangleShape2D_0d7cy")
+
+[node name="Sprite2D3" type="Sprite2D" parent="DropBox/walls/left"]
+position = Vector2(0, 1.24995)
+scale = Vector2(1, 1.40039)
+texture = ExtResource("6_oshiy")
+
+[node name="right" type="CollisionShape2D" parent="DropBox/walls"]
+position = Vector2(316, 126.25)
+scale = Vector2(0.04, 1)
+shape = SubResource("RectangleShape2D_0d7cy")
+
+[node name="Sprite2D3" type="Sprite2D" parent="DropBox/walls/right"]
+position = Vector2(0, 3.25002)
+scale = Vector2(1, 1.4082)
+texture = ExtResource("6_oshiy")
+
+[node name="left2" type="CollisionShape2D" parent="DropBox/walls"]
+position = Vector2(-412, -532)
+rotation = -0.261799
+scale = Vector2(0.04, 1)
+shape = SubResource("RectangleShape2D_0d7cy")
+
+[node name="Sprite2D3" type="Sprite2D" parent="DropBox/walls/left2"]
+visible = false
+texture = ExtResource("6_oshiy")
+
+[node name="right2" type="CollisionShape2D" parent="DropBox/walls"]
+position = Vector2(408, -574)
+rotation = 0.261799
+scale = Vector2(0.04, 1)
+shape = SubResource("RectangleShape2D_0d7cy")
+
+[node name="Sprite2D3" type="Sprite2D" parent="DropBox/walls/right2"]
+visible = false
+texture = ExtResource("6_oshiy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DropBox/walls"]
+position = Vector2(5, -811)
+shape = SubResource("WorldBoundaryShape2D_y38si")
+one_way_collision = true
+
+[node name="items" type="Node2D" parent="DropBox"]
+unique_name_in_owner = true

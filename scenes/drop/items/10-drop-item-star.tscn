@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bvb1eva5itspp"]
+
+[ext_resource type="PhysicsMaterial" uid="uid://dck5o0rbwcddu" path="res://scenes/drop/items/drop-items-physics-mat.tres" id="1_5fm26"]
+[ext_resource type="Script" path="res://scenes/drop/drop_item.gd" id="1_eq2ax"]
+[ext_resource type="Texture2D" uid="uid://y2lrm2mto87w" path="res://assets/sprites/drop/itch/pngs/star-fruit.png" id="2_2oalt"]
+
+[node name="drop-item-star" type="RigidBody2D" groups=["dropitem"]]
+mass = 0.5
+physics_material_override = ExtResource("1_5fm26")
+script = ExtResource("1_eq2ax")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-1, 8)
+scale = Vector2(0.48, 0.48)
+polygon = PackedVector2Array(-112, -199, -167, -162, -225, -100, -277, -33, -312, 24, -330, 89, -330, 143, -318, 182, -293, 212, -273, 213, -241, 249, -176, 279, -101, 290, -29, 283, 39, 259, 124, 220, 203, 158, 258, 91, 290, 4, 292, -49, 320, -97, 333, -143, 320, -176, 287, -196, 248, -203, 235, -235, 214, -277, 187, -304, 147, -297, 108, -279, 62, -253, 26, -242, -34, -235)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.48, 0.48)
+texture = ExtResource("2_2oalt")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

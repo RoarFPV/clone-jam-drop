@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://cjletxsgmap21"]
+
+[ext_resource type="Script" path="res://scenes/drop/drop_item.gd" id="1_q3a0g"]
+[ext_resource type="PhysicsMaterial" uid="uid://dck5o0rbwcddu" path="res://scenes/drop/items/drop-items-physics-mat.tres" id="1_u8i2m"]
+[ext_resource type="Texture2D" uid="uid://dpp21qbw0ix14" path="res://assets/sprites/drop/itch/pngs/red-cherry.png" id="2_a1dv6"]
+
+[node name="drop-item-cherry" type="RigidBody2D" groups=["dropitem"]]
+mass = 0.01
+physics_material_override = ExtResource("1_u8i2m")
+script = ExtResource("1_q3a0g")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(4.426, -2.87085)
+scale = Vector2(0.066, 0.065)
+polygon = PackedVector2Array(-111, -94, -145, -106, -177, -110, -207, -107, -233, -97, -262, -78, -288, -52, -304, -16, -311, 22, -309, 60, -299, 97, -282, 125, -266, 144, -247, 159, -221, 175, -200, 180, -178, 185, -150, 184, -118, 180, -104, 201, -90, 223, -64, 252, -35, 270, -7, 281, 28, 288, 63, 286, 100, 274, 127, 260, 148, 242, 168, 216, 180, 184, 189, 152, 188, 120, 180, 87, 168, 66, 152, 47, 128, 30, 108, 16, 79, 5, 25, 1, -15, 8, -33, -17, -51, -48, -76, -73)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(4.426, -3.4025)
+scale = Vector2(0.066, 0.065)
+texture = ExtResource("2_a1dv6")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

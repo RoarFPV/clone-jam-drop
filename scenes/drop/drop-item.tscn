@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://knxsqy5fsiuy"]
+
+[ext_resource type="Script" path="res://scenes/drop/drop_item.gd" id="1_3lec7"]
+[ext_resource type="Texture2D" uid="uid://bq12afswcnw20" path="res://assets/sprites/drop/itch/pngs/orange.png" id="1_tcqag"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_vhc3q"]
+friction = 0.28
+bounce = 0.72
+
+[node name="RigidBody2D" type="RigidBody2D" groups=["dropitem"]]
+position = Vector2(-1, 0)
+physics_material_override = SubResource("PhysicsMaterial_vhc3q")
+script = ExtResource("1_3lec7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, -8)
+scale = Vector2(0.1239, 0.131236)
+texture = ExtResource("1_tcqag")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-30, -41, -18, -48, -7, -51, 5, -52, 16, -50, 30, -43, 45, -24, 50, -6, 50, 8, 47, 22, 40, 32, 32, 39, 20, 45, 6, 48, -7, 48, -18, 45, -23, 44, -27, 45, -32, 43, -34, 40, -34, 36, -38, 32, -42, 26, -46, 16, -49, 6, -50, -5, -48, -17, -36, -35)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

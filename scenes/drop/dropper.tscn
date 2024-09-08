@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://n3r8gdl5wm2f"]
+
+[ext_resource type="Script" path="res://scenes/drop/dropper.gd" id="1_arium"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wmept"]
+
+[node name="RigidBody2D" type="RigidBody2D"]
+collision_layer = 0
+collision_mask = 2
+mass = 8.892
+gravity_scale = 0.0
+can_sleep = false
+lock_rotation = true
+freeze = true
+freeze_mode = 1
+linear_damp = 20.0
+script = ExtResource("1_arium")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_wmept")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2(7, 2.22277)
+scale = Vector2(1, 2.22277)
+color = Color(1, 1, 1, 0.396078)
+polygon = PackedVector2Array(-11, -1, -11, 201, -3, 201, -3, -1)
+
+[node name="item_drop_joint" type="PinJoint2D" parent="."]
+node_a = NodePath("..")
+bias = 0.514
+softness = 16.0
+angular_limit_enabled = true
+angular_limit_lower = -1.5708
+angular_limit_upper = 1.5708
+
+[node name="spawnTimer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 0.5
+one_shot = true

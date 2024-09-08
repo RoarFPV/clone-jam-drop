@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://b44cauumvn4m8"]
+
+[ext_resource type="Script" path="res://scenes/drop/drop_item.gd" id="1_eeeh4"]
+[ext_resource type="PhysicsMaterial" uid="uid://dck5o0rbwcddu" path="res://scenes/drop/items/drop-items-physics-mat.tres" id="1_vrn3m"]
+[ext_resource type="Texture2D" uid="uid://b40x0i847wr72" path="res://assets/sprites/drop/itch/pngs/pear.png" id="2_3upjo"]
+
+[node name="drop-item-pear" type="RigidBody2D" groups=["dropitem"]]
+position = Vector2(-1, 0)
+physics_material_override = ExtResource("1_vrn3m")
+script = ExtResource("1_eeeh4")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-2, 17)
+scale = Vector2(2.05768, 1.91365)
+polygon = PackedVector2Array(5, -51, -2, -38, -7, -19, -19.4394, -5.22561, -32, 13, -33, 30, -27, 43, -18, 53, -5, 59, 11, 58, 21, 55, 28, 48, 33, 40, 36, 33, 36, 23, 34, 14, 29, 4, 26, -6, 28, -23, 28, -39, 27, -46, 21, -50, 15, -53, 9, -52)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.254, 0.254)
+texture = ExtResource("2_3upjo")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

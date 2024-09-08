@@ -1,0 +1,50 @@
+[gd_scene load_steps=12 format=3 uid="uid://t1jl0fmmpyqg"]
+
+[ext_resource type="PackedScene" uid="uid://b44cauumvn4m8" path="res://scenes/drop/items/07-drop-item-pear.tscn" id="1_cu5f2"]
+[ext_resource type="PackedScene" uid="uid://b0lxrw00lvam" path="res://scenes/drop/items/08-drop-item-apple.tscn" id="1_s6jtw"]
+[ext_resource type="PackedScene" uid="uid://cjletxsgmap21" path="res://scenes/drop/items/01-drop-item-cherry.tscn" id="2_0qy73"]
+[ext_resource type="PackedScene" uid="uid://c3dn5wnd00xpc" path="res://scenes/drop/items/09-drop-item-orange.tscn" id="2_i2wxv"]
+[ext_resource type="PackedScene" uid="uid://dl2v0qq3ipwrv" path="res://scenes/drop/items/04-drop-item-lemon.tscn" id="3_61li6"]
+[ext_resource type="PackedScene" uid="uid://l38vb3oa275c" path="res://scenes/drop/items/03-drop-item-lime.tscn" id="3_kpk8u"]
+[ext_resource type="PackedScene" uid="uid://csmghgrhee8x0" path="res://scenes/drop/items/11-drop-item-watermelon.tscn" id="4_xl11k"]
+[ext_resource type="PackedScene" uid="uid://bgrb6vq68rn7r" path="res://scenes/drop/items/06-drop-item-peach.tscn" id="6_d8tmg"]
+[ext_resource type="PackedScene" uid="uid://baglg2ek87uw8" path="res://scenes/drop/items/05-drop-item-plum.tscn" id="8_kk48o"]
+[ext_resource type="PackedScene" uid="uid://bvb1eva5itspp" path="res://scenes/drop/items/10-drop-item-star.tscn" id="9_au20j"]
+[ext_resource type="PackedScene" uid="uid://dfyn2wrl0n41p" path="res://scenes/drop/items/02-drop-item-blackberry.tscn" id="11_fjq04"]
+
+[node name="Item-overview" type="Node2D"]
+
+[node name="drop-item-apple" parent="." instance=ExtResource("1_s6jtw")]
+position = Vector2(-31, 891)
+mass = 0.2
+
+[node name="drop-item-cherry" parent="." instance=ExtResource("2_0qy73")]
+position = Vector2(-790, 962)
+
+[node name="drop-item-lemon" parent="." instance=ExtResource("3_61li6")]
+position = Vector2(-577, 945)
+
+[node name="drop-item-lime" parent="." instance=ExtResource("3_kpk8u")]
+position = Vector2(-673, 955)
+
+[node name="drop-item-watermelon" parent="." instance=ExtResource("4_xl11k")]
+position = Vector2(904, 805)
+
+[node name="drop-item-orange" parent="." instance=ExtResource("2_i2wxv")]
+position = Vector2(198, 865)
+
+[node name="drop-item-peach" parent="." instance=ExtResource("6_d8tmg")]
+position = Vector2(-358, 921)
+
+[node name="drop-item-pear" parent="." instance=ExtResource("1_cu5f2")]
+position = Vector2(-218, 859)
+mass = 0.15
+
+[node name="drop-item-plum" parent="." instance=ExtResource("8_kk48o")]
+position = Vector2(-479, 923)
+
+[node name="drop-item-star" parent="." instance=ExtResource("9_au20j")]
+position = Vector2(505, 847)
+
+[node name="drop-item-blackberry" parent="." instance=ExtResource("11_fjq04")]
+position = Vector2(-741, 959)

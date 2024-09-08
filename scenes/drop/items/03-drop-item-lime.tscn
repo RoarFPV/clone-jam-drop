@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://l38vb3oa275c"]
+
+[ext_resource type="Script" path="res://scenes/drop/drop_item.gd" id="1_3v8ps"]
+[ext_resource type="PhysicsMaterial" uid="uid://dck5o0rbwcddu" path="res://scenes/drop/items/drop-items-physics-mat.tres" id="1_pb638"]
+[ext_resource type="Texture2D" uid="uid://c317hv3tlmfac" path="res://assets/sprites/drop/itch/pngs/lime.png" id="2_3eqyi"]
+
+[node name="drop-item-lime" type="RigidBody2D" groups=["dropitem"]]
+position = Vector2(-1, 0)
+mass = 0.04
+physics_material_override = ExtResource("1_pb638")
+script = ExtResource("1_3v8ps")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-1, 5)
+scale = Vector2(0.634128, 0.634128)
+polygon = PackedVector2Array(29, -32, 20, -37, 11, -41, 1, -41, -11, -38, -21, -31, -29, -22, -33, -9, -35, 2, -35, 12, -29, 15, -20, 22, -9, 25, 4, 27, 14, 23, 22, 18, 29, 10, 35, 2, 36, -8, 38, -15, 38, -22, 36, -27, 32, -29)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_3eqyi")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

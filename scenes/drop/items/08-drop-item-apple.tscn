@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://b0lxrw00lvam"]
+
+[ext_resource type="Script" path="res://scenes/drop/drop_item.gd" id="1_totfk"]
+[ext_resource type="PhysicsMaterial" uid="uid://dck5o0rbwcddu" path="res://scenes/drop/items/drop-items-physics-mat.tres" id="1_y45n2"]
+[ext_resource type="Texture2D" uid="uid://ccwi1jiop7m5n" path="res://assets/sprites/drop/itch/pngs/red-apple.png" id="2_2rar5"]
+
+[node name="drop-item-apple" type="RigidBody2D" groups=["dropitem"]]
+physics_material_override = ExtResource("1_y45n2")
+script = ExtResource("1_totfk")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(0, 2)
+scale = Vector2(0.277272, 0.277272)
+polygon = PackedVector2Array(-263, -168, -298, -127, -322, -84, -332, -24, -322, 74, -293, 167, -242, 251, -170, 304, -117, 325, -20, 323, 105, 329, 179, 296, 251, 236, 296, 163, 323, 66, 331, -14, 313, -78, 278, -144, 247, -178, 177, -217, 91, -224, 27, -203, -26, -199, -72, -213, -148, -220, -207, -203)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.266077, 0.212861)
+texture = ExtResource("2_2rar5")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

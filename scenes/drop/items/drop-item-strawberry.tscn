@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://d3les2gjtp2ui"]
+
+[ext_resource type="Script" path="res://scenes/drop/drop_item.gd" id="1_7m4kq"]
+[ext_resource type="PhysicsMaterial" uid="uid://dck5o0rbwcddu" path="res://scenes/drop/items/drop-items-physics-mat.tres" id="1_dx8l7"]
+[ext_resource type="Texture2D" uid="uid://dhqlr5vnget60" path="res://assets/sprites/drop/itch/pngs/strawberry.png" id="2_hixa6"]
+
+[node name="drop-item-strawberry" type="RigidBody2D" groups=["dropitem"]]
+physics_material_override = ExtResource("1_dx8l7")
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("1_7m4kq")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-1, 8)
+polygon = PackedVector2Array(-141, -196, -216, -132, -257, -40, -282, 56, -317, 142, -332, 224, -295, 301, -233, 327, -167, 339, -83, 316, 20, 284, 86, 256, 144, 222, 204, 132, 202, 56, 200, 20, 176, -36, 146, -76, 108, -115, 65, -149, -17, -179, -79, -196)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_hixa6")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://csmghgrhee8x0"]
+
+[ext_resource type="PhysicsMaterial" uid="uid://dck5o0rbwcddu" path="res://scenes/drop/items/drop-items-physics-mat.tres" id="1_2qtdh"]
+[ext_resource type="Script" path="res://scenes/drop/drop_item.gd" id="1_fkvrc"]
+[ext_resource type="Texture2D" uid="uid://fvcmeqnpmqjd" path="res://assets/sprites/drop/itch/pngs/watermelon.png" id="2_nqnsi"]
+
+[node name="drop-item-watermelon" type="RigidBody2D" groups=["dropitem"]]
+physics_material_override = ExtResource("1_2qtdh")
+script = ExtResource("1_fkvrc")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(0, 3.39414)
+scale = Vector2(0.462, 0.52)
+polygon = PackedVector2Array(-167, -350, -274, -297, -372, -203, -434, -87, -438, 23, -423, 108, -387, 178, -323, 254, -212, 321, -68, 356, 57, 356, 172, 334, 285, 280, 380, 196, 433, 102, 452, -26, 406, -137, 365, -196, 316, -244, 244, -295, 168, -330, 111, -352, 22, -373, -62, -369)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.462, 0.52)
+texture = ExtResource("2_nqnsi")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
