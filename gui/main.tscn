@@ -1,15 +1,21 @@
-[gd_scene load_steps=13 format=3 uid="uid://c8e24x5opdiqn"]
+[gd_scene load_steps=11 format=3 uid="uid://c8e24x5opdiqn"]
 
 [ext_resource type="Script" path="res://gui/main.gd" id="1_pqdiy"]
-[ext_resource type="PackedScene" uid="uid://ojsfmtb70yhp" path="res://scenes/terrain.tscn" id="1_ynw5l"]
-[ext_resource type="PackedScene" uid="uid://dkiv07k4mxnfw" path="res://scenes/car.tscn" id="2_ggs86"]
 [ext_resource type="PackedScene" uid="uid://c1lrcqch251yx" path="res://scenes/parallax.tscn" id="2_o1kn4"]
-[ext_resource type="Texture2D" uid="uid://cjr4c7elih2n2" path="res://assets/title.svg" id="3_l3i2j"]
 [ext_resource type="Theme" uid="uid://iglcheijqvq" path="res://default_theme.tres" id="6_tqrn5"]
 [ext_resource type="PackedScene" uid="uid://nr14eso61en7" path="res://gui/settings.tscn" id="7_nry05"]
 [ext_resource type="PackedScene" uid="uid://crsba2elk6qyu" path="res://gui/credits.tscn" id="8_mwn0h"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iw07j"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_c2fn8"]
+font_size = 55
+font_color = Color(0.769102, 0.567982, 1, 1)
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(2, 2)
 
 [sub_resource type="Animation" id="Animation_cmu8r"]
 length = 0.001
@@ -93,8 +99,8 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lrref"]
 _data = {
-&"intro": SubResource("Animation_7d0wv"),
-&"RESET": SubResource("Animation_cmu8r")
+&"RESET": SubResource("Animation_cmu8r"),
+&"intro": SubResource("Animation_7d0wv")
 }
 
 [node name="GuiMain" type="Node2D"]
@@ -107,21 +113,6 @@ zoom = Vector2(0.5, 0.5)
 
 [node name="Parallax" parent="." instance=ExtResource("2_o1kn4")]
 position = Vector2(1151, 0)
-
-[node name="Terrain" parent="." instance=ExtResource("1_ynw5l")]
-unique_name_in_owner = true
-lacunarity = 5.0
-scale_y = 100.0
-slope = 0.0
-generate_items = false
-dif_init = 1.0
-
-[node name="Car" parent="." instance=ExtResource("2_ggs86")]
-unique_name_in_owner = true
-position = Vector2(117, 304)
-AUTO_ADVANCE = true
-ENABLE_USER = false
-MUTE = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -144,12 +135,15 @@ theme = ExtResource("6_tqrn5")
 theme_override_constants/separation = 0
 metadata/_tab_index = 0
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/TabContainer/MainMenu"]
-custom_minimum_size = Vector2(0, 320)
+[node name="RichTextLabel" type="Label" parent="CanvasLayer/TabContainer/MainMenu"]
 layout_mode = 2
-texture = ExtResource("3_l3i2j")
-expand_mode = 1
-stretch_mode = 5
+text = "
+Melon Drop: 
+Clone
+
+"
+label_settings = SubResource("LabelSettings_c2fn8")
+horizontal_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/TabContainer/MainMenu"]
 layout_mode = 2

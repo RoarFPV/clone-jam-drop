@@ -9,13 +9,18 @@ var current_item:RigidBody2D
 #@export var item_drop_joint : PinJoint2D
 @export var items_root : Node2D
 
+var offset = 0.0
 func _input(event: InputEvent) -> void:
 	# should check game state
 	if event is InputEventMouseMotion:
-		position += Vector2.RIGHT * event.relative.x
+		offset += event.relative.x
 		apply_central_impulse(Vector2.RIGHT * event.relative.x * look_sensitivity)
 
 func _process(delta: float) -> void:
+	
+	position += Vector2.RIGHT * offset * look_sensitivity * delta
+	offset = 0.0
+	
 	if current_item == null and $spawnTimer.is_stopped() and Globals.game:
 		var id = randi_range(0, max_spawn_index)
 		var item = Globals.game.all_drop_items[id]
@@ -28,12 +33,15 @@ func _process(delta: float) -> void:
 		$item_drop_joint.node_b = current_item.get_path()
 		
 		
-		
-	if Input.is_action_just_released("drop_item"):
+	if Input.is_action_pressed("debug_mod"):
+		if Input.is_action_pressed("drop_item") and current_item:
+			current_item.isAlive = true
+			$item_drop_joint.node_b = NodePath()
+			current_item = null
+	elif Input.is_action_just_released("drop_item"):
 		if current_item:
 			current_item.isAlive = true
-			if not Input.is_action_pressed("debug_mod"):
-				$spawnTimer.start()
+			$spawnTimer.start()
 				
 			$item_drop_joint.node_b = NodePath()
 			current_item = null

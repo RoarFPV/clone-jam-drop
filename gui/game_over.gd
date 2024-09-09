@@ -39,7 +39,7 @@ func _ready() -> void:
 	coins_label.text = str(Globals.score_coins)
 	jumps_label.text = str(Globals.score_jump)
 	backflips_label.text = str(Globals.score_backflip)
-	var score := Globals.score_distance
+	var score = Globals.score_distance
 	score += Globals.score_coins
 	score += Globals.score_jump
 	score += Globals.score_backflip

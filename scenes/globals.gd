@@ -7,7 +7,7 @@ signal game_over()
 
 const MEDAL_VALUE: int = 10000
 
-var score_distance := 0 : set = _on_set_score_distance
+var score_distance : int = 0 : set = _on_set_score_distance
 var score_coins := 0 : set = _on_set_score_coins
 var score_jump := 0 : set = _on_set_score_jump
 var score_backflip := 0 : set = _on_set_score_backflip

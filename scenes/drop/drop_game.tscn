@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://c7k5cgewcagyq"]
+[gd_scene load_steps=36 format=3 uid="uid://c7k5cgewcagyq"]
 
 [ext_resource type="Script" path="res://scenes/drop/drop_game.gd" id="1_mv680"]
 [ext_resource type="PackedScene" uid="uid://codferebqxbgi" path="res://gui/drop_hud.tscn" id="2_c2rwi"]
@@ -114,6 +114,9 @@ size = Vector2(509, 717.5)
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_y38si"]
 normal = Vector2(0, 1)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bmqkw"]
+size = Vector2(664, 35)
+
 [node name="Game" type="Node2D" node_paths=PackedStringArray("items_root")]
 position = Vector2(1, 0)
 script = ExtResource("1_mv680")
@@ -202,3 +205,28 @@ one_way_collision = true
 
 [node name="items" type="Node2D" parent="DropBox"]
 unique_name_in_owner = true
+
+[node name="toparea" type="Area2D" parent="DropBox"]
+unique_name_in_owner = true
+position = Vector2(-1, -245)
+collision_layer = 256
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DropBox/toparea"]
+position = Vector2(-6, -7.5)
+shape = SubResource("RectangleShape2D_bmqkw")
+
+[node name="topoverflow" type="Area2D" parent="DropBox"]
+unique_name_in_owner = true
+position = Vector2(-1, -245)
+collision_layer = 256
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DropBox/topoverflow"]
+position = Vector2(-6, -7.5)
+shape = SubResource("RectangleShape2D_bmqkw")
+
+[connection signal="body_entered" from="DropBox/toparea" to="." method="_on_toparea_body_entered"]
+[connection signal="body_exited" from="DropBox/toparea" to="." method="_on_toparea_body_exited"]
+[connection signal="body_entered" from="DropBox/topoverflow" to="." method="_on_topoverflow_body_entered"]
+[connection signal="body_exited" from="DropBox/topoverflow" to="." method="_on_topoverflow_body_exited"]

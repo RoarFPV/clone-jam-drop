@@ -99,8 +99,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6khr1"]
 _data = {
-&"new_animation": SubResource("Animation_42lce"),
-&"RESET": SubResource("Animation_jm6vj")
+&"RESET": SubResource("Animation_jm6vj"),
+&"new_animation": SubResource("Animation_42lce")
 }
 
 [node name="HUD" type="CanvasLayer"]

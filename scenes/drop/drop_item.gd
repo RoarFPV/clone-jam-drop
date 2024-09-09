@@ -4,6 +4,10 @@ class_name DropItem
 var type = 0
 var isAlive = true
 
+var topoverflow = false
+var toparea = false
+var hasHitTop = false
+
 func _init() -> void:
 	contact_monitor = true
 	max_contacts_reported = 1
